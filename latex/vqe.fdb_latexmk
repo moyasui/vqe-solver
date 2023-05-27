@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex vqe"] 1685019002 "vqe.aux" "vqe.bbl" "vqe" 1685019003
+["bibtex vqe"] 1685184035 "vqe.aux" "vqe.bbl" "vqe" 1685184036
   "/usr/local/texlive/2021/texmf-dist/bibtex/bst/revtex4-1/apsrev4-1.bst" 1602107945 71515 e333383ed72bf24aa6de7e8cabb55f84 ""
   "ref.bib" 0 -1 0 ""
-  "vqe.aux" 1685019003 2062 cd12e7f6c2291d1b5ed90cf9f04f8479 "pdflatex"
-  "vqeNotes.bib" 1685019003 103 48ad29797468f16e2853d8797278d7af "pdflatex"
+  "vqe.aux" 1685184035 2210 6611c9fddfba881c13840824628b2708 "pdflatex"
+  "vqeNotes.bib" 1685184035 103 48ad29797468f16e2853d8797278d7af "pdflatex"
   (generated)
-  "vqe.blg"
   "vqe.bbl"
-["pdflatex"] 1685019002 "vqe.tex" "vqe.pdf" "vqe" 1685019003
+  "vqe.blg"
+["pdflatex"] 1685184035 "vqe.tex" "vqe.pdf" "vqe" 1685184036
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -23,8 +23,13 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti9.tfm" 1136768653 1476 cccc6cc4935c18ec3d5623b77ecb8b74 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb" 1248133631 32298 c6d25bb16d1eac01ebdc6d7084126a1e ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2021/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2021/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -201,14 +206,14 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1629454258 2801502 1bfe57c2d8029421f929490cc2d89a74 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "amsmath.tex" 0 -1 0 ""
-  "vqe.aux" 1685019003 2062 cd12e7f6c2291d1b5ed90cf9f04f8479 "pdflatex"
+  "vqe.aux" 1685184035 2210 6611c9fddfba881c13840824628b2708 "pdflatex"
   "vqe.bbl" 0 -1 0 "bibtex vqe"
-  "vqe.out" 1685019003 1222 920c82a16eb7f20449dc4bcf9f6dc87b "pdflatex"
-  "vqe.tex" 1685019001 2311 2482b86e116296f557a6b7fb109bac38 ""
+  "vqe.out" 1685184035 1316 fd020a3b0d15e6ed0cc6666317c426e6 "pdflatex"
+  "vqe.tex" 1685184033 3945 85e27399102db923e7947c84a98385e9 ""
   (generated)
-  "vqe.out"
-  "amsmath.aux"
   "vqe.log"
-  "vqeNotes.bib"
+  "amsmath.aux"
   "vqe.aux"
   "vqe.pdf"
+  "vqeNotes.bib"
+  "vqe.out"

@@ -18,9 +18,13 @@ class Vqe():
                 
         def _objective(self,params):
             qc = self.ansatz(params)
-            energy = qc.state @ (self.H @ qc.state)
+            # maybe needs to be changed to measurement based can actually take the 
+            # expectation value
+            energy = qc.state.conj() @ (self.H @ qc.state)
             return energy
-       
+
+        def expectation(self,num_shots=1024):
+            pass
 
         def minimise_eigenvalue(self, hamiltonian, num_shots=1024):
             '''

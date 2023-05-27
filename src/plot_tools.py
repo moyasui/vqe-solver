@@ -37,6 +37,7 @@ def plot_2D(x, y, plot_count=1,title=None,x_title=None,y_title=None,label=False,
 
 	if plot_count == 1:
 		y = [y]
+	
 
 	for i in range(plot_count):
 		if multi_x:

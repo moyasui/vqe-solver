@@ -223,6 +223,9 @@ class Qubits(Qubits_2):
         
 
 
+
+
+
 if __name__ == "__main__":
     q1 = Qubit()
     q2 = Qubits_2()
