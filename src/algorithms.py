@@ -1,6 +1,5 @@
 # Algorithms for using base
 
-import jax.numpy as jnp
 from scipy.optimize import minimize
 
 class Vqe():
@@ -42,3 +41,9 @@ class Vqe():
             
 
             return min_params, min_energy
+
+        
+
+
+if __name__ == "__main__":
+     print("Testing VQE")
