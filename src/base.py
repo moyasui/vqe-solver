@@ -30,6 +30,12 @@ class Qubit:
         assert np.linalg.norm(state) == 1, "Invalid state: must be normalised"
         self.state = state
 
+    def copy(self):
+        new_qubit = Qubit()
+        new_qubit.state = self.state.copy()
+        new_qubit.n_qubit = self.n_qubit
+        return new_qubit
+
     def _get_state_dict(self):
         self.state_dict = dict()
         for i in np.arange(2 ** self.n_qubit):
@@ -78,7 +84,7 @@ class Qubit:
         self.operate(self.Z, i)
     
     def sdag(self,i):
-        self.operate(self.S, i)
+        self.operate(self.S.conj(), i)
 
     def rx(self, theta, i):
         Rx = np.cos(theta/2) * self.I - 1j * np.sin(theta/2) * self.X 
@@ -92,20 +98,25 @@ class Qubit:
         prob = np.abs(self.state**2)
         return prob
 
-    def measure(self, n=1):
+    def measure(self, n_shots=1):
         ''' n: number of shots 
             indexs: the index of the qubit(s) being measured '''
         
         prob = self.prob()
         allowed_outcomes = np.arange(len(self.state))
         # print(self.state)
-        outcomes = np.random.choice(allowed_outcomes, p=prob, size = n)
+        outcomes = np.random.choice(allowed_outcomes, p=prob, size = n_shots)
         
         self.state = np.zeros_like(self.state)
         self.state[outcomes[-1]] = 1
         counts = Counter(outcomes)
-
-        outcomes_count = [(counts[i],format(i, f"0{self.n_qubit}b")) if i in counts else (0,format(i, f"0{self.n_qubit}b")) for i in range(2**self.n_qubit)]
+        
+        outcomes_count = np.zeros((len(self.state),2)) # 2: state and count
+        for i in range(len(self.state)):
+            if i in counts:
+                outcomes_count[i] = counts[i], format(i, f"0{self.n_qubit}b")
+            else:
+                outcomes_count[i] = 0,format(i, f"0{self.n_qubit}b")
         # count_qubit = Counter(outcomes_count,)
 
         # single_qubit_count = Counter(outcomes_count)
@@ -137,6 +148,10 @@ class Qubits_2(Qubit):
                               [0, 1, 0, 0], 
                               [0, 0, 0, 1]])        
 
+    def copy(self):
+        new_qubit = Qubits_2()
+        new_qubit.state = self.state.copy()
+        return new_qubit
 
     def cnot(self, i, j):
         if i == 0 and j == 1:
@@ -148,22 +163,7 @@ class Qubits_2(Qubit):
         
     
     def swap(self):
-        self.state = self.swp @ self.state
-         
-    # def rx(self, theta, qubit):
-    #     Rx = np.cos(theta/2) * self.I - 1j * np.sin(theta/2) * self.X
-    #     if qubit == 0:
-    #         self.state = np.kron(Rx, self.I) @ self.state
-    #     elif qubit == 1:
-    #         self.state = np.kron(self.I, Rx) @ self.state
-
-    # def ry(self, phi, qubit):    
-    #     Ry = np.cos(phi/2) * self.I - 1j * np.sin(phi/2) * self.Y
-    #     if qubit == 0:
-    #         self.state = np.kron(Ry, self.I) @ self.state
-    #     elif qubit == 1:
-    #         self.state = np.kron(self.I, Ry) @ self.state
-    #     return self.state
+        self.state = self.swp @ self.state 
 
 
 class Qubits(Qubits_2):
@@ -175,6 +175,12 @@ class Qubits(Qubits_2):
         self.n_qubit = n
         self._get_state_dict()
         # print(self.state_dict)
+    
+    def copy(self):
+        new_qubit = Qubits(self.n_qubit)
+        new_qubit.state = self.state.copy()
+        return new_qubit
+
 
     def _find_flipped_state(self, target, state):
         ''' 
@@ -221,7 +227,7 @@ class Qubits(Qubits_2):
         # print(len(new_state_dict.values()))
         self.state = np.fromiter(new_state_dict.values(), dtype=np.complex_)
         
-
+    
 
 
 
@@ -232,15 +238,5 @@ if __name__ == "__main__":
     q4 = Qubits(4)
 
 
-
-    # q4 test:
-    q2.hadamard(0)
-    print(q2)
-    # q2.cnot(0,1)
-    q2.ry(np.pi/2,0)
-    print(q2)
-    # q4.cnot(0,1) # works now!
-    # q4.swap(0,3) # work
-    # print(q4)
-    q2.measure(100)
-
+    n = q2.measure(100)
+    print(n[:,0])

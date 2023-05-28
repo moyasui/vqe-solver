@@ -1,67 +1,41 @@
 # Utils
 import numpy as np
+import re
 
-# Pauli operators
-I = np.eye(2)
-X = np.array([[0, 1], [1, 0]])
-Y = np.array([[0, -1j], [1j, 0]])
-Z = np.array([[1, 0], [0, -1]])
-pauli_dict = {'I': I, 'X': X, 'Y': Y, 'Z': Z, 'II': np.kron(I,I),
-              'IZ': np.kron(I,Z), 'ZI': np.kron(Z,I), 'ZZ': np.kron(Z,Z),
-              'XX': np.kron(X,X), 'YY': np.kron(Y,Y)}
+def get_pauli(basis_name):
+    pauli_matrices = {'I': np.eye(2, dtype=np.complex128), 
+                      'X': np.array([[0, 1], [1, 0]], dtype=np.complex128), 
+                      'Y': np.array([[0, -1j], [1j, 0]]), 
+                      'Z': np.array([[1, 0], [0, -1]],dtype=np.complex128)}
 
-class Operators:
+    # Check if basis_name is a valid combination
+    valid_basis = all(ch in pauli_matrices for ch in basis_name)
+    if not valid_basis:
+        print(f'Invalid basis name: {basis_name}')
+        return
 
-    '''Contains operators '''
+    # Calculate the matrix for the given basis_name
+    matrix = np.eye(1)
+    for ch in basis_name:
+        matrix = np.kron(matrix, pauli_matrices[ch])
 
-    def __init__(self, n_qubit) -> None:
-        self.n_qubit = n_qubit
-        self.I = np.eye(2)
-        self.H = 1/np.sqrt(2) * np.array([[1, 1], [1, -1]])
-        self.X = np.array([[0, 1], [1, 0]])
-        self.Y = np.array([[0, -1j], [1j, 0]])
-        self.Z = np.array([[1, 0], [0, -1]])
-        self.S = np.array([[1, 0], [0, 1j]]) # the phase gate
-    
-        if n_qubit == 2:
-            self.cnot_01 = np.array([[1, 0, 0, 0], 
-                                    [0, 1, 0, 0], 
-                                    [0, 0, 0, 1], 
-                                    [0, 0, 1, 0]])
-            
-            self.cnot_10 = np.array([[1, 0, 0, 0], 
-                                    [0, 0, 0, 1], 
-                                    [0, 0, 1, 0], 
-                                    [0, 1, 0, 0]])
-            
-            self.swap = np.array([[1, 0, 0, 0], 
-                                [0, 0, 1, 0], 
-                                [0, 1, 0, 0], 
-                                [0, 0, 0, 1]]) 
-    
-    def operate(self, operator, indx):
-        ''' returns the operator (matrix) to operate on a single qubit on the given 
-         index in the n-qubit system'''
-        result = np.eye(2**indx)
-        result = np.kron(result, operator)
-        for _ in range(int(self.n_qubit-indx-len(operator)/2)):
-            result = np.kron(result, np.eye(2))
-        
-        return result
-    
+    return matrix
+
 
 def pauli_sum(lst):
     """
     Computes the Pauli sum of a list of Pauli operators.
     """
-    result = 0
+    result = 0+0j
     for item in lst:
         if len(item)!= 2:
             raise ValueError(f'must be of length 2, not {len(item)}')
-        if item[0] not in pauli_dict.keys():
+        
+        matrix = get_pauli(item[0])
+        if matrix is None:
             raise ValueError(f'Invalid Pauli operator: {item[0]}')
         
-        result += item[1] * pauli_dict[item[0]] 
+        result += np.complex128(item[1]) * matrix 
 
     return result
 
@@ -102,3 +76,20 @@ def entropy(H, level=0):
     # Print the von Neumann entropies for subsystem A and subsystem B
     return entropy_A, entropy_B
 
+
+
+def is_basis_combination(basis):
+    pattern = r"^[IXZY]+$"
+    match = re.match(pattern, basis)
+    return bool(match)
+
+def change_basis(qc, basis):
+
+    if not is_basis_combination(basis):
+        raise ValueError(f"Invalid basis: {basis}")
+        
+    
+
+if __name__ == "__main__":
+    # Test Pauli operators
+    a = pauli_sum([('IZZZ', 3), ('ZXYI', 82)])
