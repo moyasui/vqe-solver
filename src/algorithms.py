@@ -28,7 +28,7 @@ class Vqe():
                 energy = self.expectation(qc, self.lmb, self.num_shots)
             return energy
 
-        def minimise_eigenvalue(self, hamiltonian, lmb, num_shots=1024):
+        def minimise_eigenvalue(self, hamiltonian, lmb, num_shots=10000):
             '''
             Rotates the parametrised circuit to find the minimised energy using classical 
             minimisation algorithms.
@@ -39,7 +39,7 @@ class Vqe():
             self.H = hamiltonian
             self.lmb = lmb
             self.num_shots = num_shots
-            result = self.minimize(self._objective, self.init_points, method="Powell", options= {"maxiter": 10000})
+            result = self.minimize(self._objective, self.init_points, method='Powell', options= {"maxiter": 10000})
             min_params = result.x
             min_energy = result.fun
 

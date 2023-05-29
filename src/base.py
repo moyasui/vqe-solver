@@ -162,7 +162,7 @@ class Qubits_2(Qubit):
             raise ValueError("Invalid indices")
         
     
-    def swap(self):
+    def swap(self, qubit_i=0, qubit_j=1):
         self.state = self.swp @ self.state 
 
 
@@ -175,6 +175,7 @@ class Qubits(Qubits_2):
         self.n_qubit = n
         self._get_state_dict()
         # print(self.state_dict)
+        
     
     def copy(self):
         new_qubit = Qubits(self.n_qubit)
@@ -196,8 +197,9 @@ class Qubits(Qubits_2):
     
     def cnot(self, control, target):
 
+        self._get_state_dict()
         new_state_dict = self.state_dict.copy()
-
+        # print(new_state_dict)
         for state in self.state_dict.keys():
             if state[control] == "1":
                 flipped_state = self._find_flipped_state(target, state)
@@ -217,7 +219,7 @@ class Qubits(Qubits_2):
         
     def swap(self, qubit1, qubit2):
 
-        
+        self._get_state_dict() 
         new_state_dict = self.state_dict.copy()
 
         for state in self.state_dict.keys():
@@ -231,12 +233,15 @@ class Qubits(Qubits_2):
 
 
 
-
 if __name__ == "__main__":
     q1 = Qubit()
     q2 = Qubits_2()
     q4 = Qubits(4)
 
+    print(q4)
+    q4.state[8] = 1 
+    print(q4)
+    q4.swap(0,2)
+    print(q4)
 
-    n = q2.measure(100)
-    print(n[:,0])
+    
