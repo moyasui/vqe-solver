@@ -6,7 +6,7 @@ This repository contains [all source code](https://github.com/moyasui/vqe-solver
 Run the Jupyter Notebooks, 
 - For the one qubit system, see [**vqe-1.ipynb**](https://github.com/moyasui/vqe-solver/blob/main/src/vqe-1.ipynb)
 - For the two qubit system, see [**vqe-2.ipynb**](https://github.com/moyasui/vqe-solver/blob/main/src/vqe-2.ipynb)
-- For the Lipkin Model (both the $J=1$ and $J=2$ cases), see[**vqe-lipkin.ipynb**](https://github.com/moyasui/vqe-solver/blob/main/src/vqe-lipkin.ipynb)
+- For the Lipkin Model (both the $J=1$ and $J=2$ cases), see [**vqe-lipkin.ipynb**](https://github.com/moyasui/vqe-solver/blob/main/src/vqe-lipkin.ipynb)
 - The Quantum Computing basics classes are in [**base.py**](https://github.com/moyasui/vqe-solver/blob/main/src/base.py)
 - The VQE class is in [**algorithms.py**](https://github.com/moyasui/vqe-solver/blob/main/src/algorithms.py)
 
