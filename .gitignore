@@ -165,3 +165,12 @@ cython_debug/
 src/plots/.DS_Store
 .DS_Store
 .DS_Store
+latex/vqe.synctex.gz
+latex/vqe.tex
+latex/vqe.out
+latex/vqe.fls
+latex/vqe.fdb_latexmk
+latex/vqe.blg
+latex/vqe.bbl
+latex/ref.bib
+latex/vqe.tex
