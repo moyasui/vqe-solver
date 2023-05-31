@@ -78,15 +78,15 @@ def entropy(H, level=0):
 
 
 
-def is_basis_combination(basis):
-    pattern = r"^[IXZY]+$"
-    match = re.match(pattern, basis)
-    return bool(match)
+# def is_basis_combination(basis):
+#     pattern = r"^[IXZY]+$"
+#     match = re.match(pattern, basis)
+#     return bool(match)
 
-def change_basis(qc, basis):
+# def change_basis(qc, basis):
 
-    if not is_basis_combination(basis):
-        raise ValueError(f"Invalid basis: {basis}")
+#     if not is_basis_combination(basis):
+#         raise ValueError(f"Invalid basis: {basis}")
         
     
 
