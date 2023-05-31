@@ -10,6 +10,6 @@ Run the Jupyter Notebooks,
 - The Quantum Computing basics classes are in [**base.py**](https://github.com/moyasui/vqe-solver/blob/main/src/base.py)
 - The VQE class is in [**algorithms.py**](https://github.com/moyasui/vqe-solver/blob/main/src/algorithms.py)
 
-All the plots will either be shown or saved to the plots folders, one should be able to recreate the plots included in the report. 
+All the plots will either be shown or saved to the plots folders, one should be able to recreate the plots included in the report. Most of the logging messages and plot savings are commented out, feel free to uncomment if one wishes to do so. 
 
 
