@@ -1,7 +1,8 @@
 # vqe-solver
 Project for FYS5419 Quantum Computing and Quantum Machine Learning. 
-This repository contains [all source code](https://github.com/moyasui/vqe-solver/tree/main/src) and the [report](https://github.com/moyasui/vqe-solver/blob/main/latex/vqe.pdf).
-
+This repository contains [all source code](https://github.com/moyasui/vqe-solver/tree/main/src) and the [report](https://github.com/moyasui/vqe-solver/blob/main/latex/vqe.pdf). 
+The slides for the final presentation is [here](https://github.com/moyasui/vqe-solver/blob/main/pre/pre.pdf). 
+  
 ## How to run
 Run the Jupyter Notebooks, 
 - For the one qubit system, see [**vqe-1.ipynb**](https://github.com/moyasui/vqe-solver/blob/main/src/vqe-1.ipynb)
